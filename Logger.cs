@@ -11,16 +11,19 @@ namespace Vending_Machine_Blake_Hunt
     {
         public static void logToText(string s)
         {
-            //MUST MAKE RELATIVE PATH
-            //
             //txt location
-            string logTxt = @"C:\Users\Brine\source\repos\Vending-Machine_Blake-Hunt-master\Vending-Machine_Blake-Hunt-master\VendLog.txt";
+            //current directory must be reversed because it leads to the bin/data folder
+            string txtPath = System.IO.Path.Combine(Environment.CurrentDirectory, @"..\..\..\Data\VendLog.txt");
+            string txtTruePath = Path.GetFullPath(txtPath);
+
 
             //add text to the txt append style
-            StreamWriter log = File.AppendText(logTxt);
+            StreamWriter log = File.AppendText(txtTruePath);
 
+            //get inserted line
             string logAppend = s;
 
+            //write line to txt
             log.WriteLine(logAppend);
             log.Close();
         }

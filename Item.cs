@@ -10,15 +10,21 @@ namespace Vending_Machine_Blake_Hunt
 {
     class Item
     {
-        public Item(string itemName, int itemNumber)
+        public Item(string itemName, int itemNumber, double itemPrice, int itemQuantity)
         {
             this.ItemName = itemName;
             this.ItemNumber = itemNumber;
+            this.ItemPrice = itemPrice;
+            this.ItemQuantity = itemQuantity;
         }
 
         [Required]
         public string ItemName {  get; set; }
         [Required]
         public int ItemNumber {  get; set; }
+        [Required]
+        public double ItemPrice { get; set; }
+        [Required]
+        public int ItemQuantity { get; set; }
     }
 }
